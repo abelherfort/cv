@@ -10,21 +10,21 @@ Whenever requesting a session, the agent would search for an available game serv
 
 ### Infrastructure
 
-![alt text](https://media.yoursit.ee/cv/compass/architecture.png "Title")
+![architecture](https://media.yoursit.ee/cv/compass/architecture.png)
 ### Session loading
 
 The lobby server would keep track of the loading process, therefore all stages and errors could be handled. The unique and template worlds are loaded from an object storage.
 
-![alt text](https://media.yoursit.ee/cv/compass/bootstrap-lobby.png "Title")
+![bootstrap-lobby](https://media.yoursit.ee/cv/compass/bootstrap-lobby.png)
 
-![alt text](https://media.yoursit.ee/cv/compass/bootstrap-game.png "Title")
+![bootstrap-game](https://media.yoursit.ee/cv/compass/bootstrap-game.png)
 
 Unique worlds are periodically synchronized with the object storage, so if a later returns to the world, they can continue right at where they left.
 
-![alt text](https://media.yoursit.ee/cv/compass/unique-world.png "Title")
+![unique-world](https://media.yoursit.ee/cv/compass/unique-world.png)
 
 ### Session unloading
 
 After all players disconnecting from the game server of the session, a timeout would start. If a player would rejoin during the timeout, the session would recover and turn to active state. This allows us to minimize load on the network, say if the player quickly connected to another server for some reason; we do not have to load the world again.
 
-![alt text](https://media.yoursit.ee/cv/compass/session-unload.png "Title")
+![session-unload](https://media.yoursit.ee/cv/compass/session-unload.png)
